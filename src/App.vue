@@ -216,7 +216,7 @@ onMounted(() => {
     <figure>
       <img src="/TIGER_files/Visual_Comparison_1.png" alt="Additional-Real-world-result" style="width: 100%;">
     </figure>
-      Compared to other SD-based Real-ISR methods,TADSR consistently produces clearer, more realistic,and more natural results, demonstrating its stronger image restoration capability while preserving fidelity.
+      Compared with existing text image SR methods, our approach reconstructs clearer and more accurate glyph structures while preserving realistic textures and global consistency, demonstrating superior robustness under complex degradations.
   </div>
 
 
