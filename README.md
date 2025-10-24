@@ -1,4 +1,4 @@
-This is the official [project page](https://tonylowe.github.io/TIGER_project_page/) for the paper
+This is the official [project page](https://Tony-Lowe.github.io/TIGER_project_page/) for the paper
 
 >**Restore Text First, Enhance Image Later: Two-Stage Scene Text Image Super-Resolution with Glyph Structure Guidance**<br>  [Minxing Luo<sup>1,2,*</sup>](), [Linlong Fan<sup>1,*</sup>](), [Wang Qiushi<sup>2,3</sup>](), [Ge Wu<sup>1</sup>](), [Yiyan Luo<sup>2</sup>](), [Yuhang Yu<sup>2,</sup>](),
  [Jinwei Chen<sup>2</sup>](),[Yaxing Wang<sup>1</sup>](),[Qingnan Fan<sup>2,&dagger;</sup>](),[Jian Yang<sup>1,&dagger;</sup>]() <br>
