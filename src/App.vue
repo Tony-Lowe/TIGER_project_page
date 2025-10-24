@@ -6,36 +6,44 @@ import { onMounted, ref } from 'vue';
 const currentSlide = ref(0);
 const imageSlides = [
   {
-    first: "/TADSR_HomePage/compare/147/lq.png",
-    second: "/TADSR_HomePage/compare/147/sr.png"
+    first: "/TIGER_project_page/compare/GreenHouse/lq.png",
+    second: "/TIGER_project_page/compare/GreenHouse/sr.png"
   },
   {
-    first: "/TADSR_HomePage/compare/0166x4d/lq.png",
-    second: "/TADSR_HomePage/compare/0166x4d/sr.png"
+    first: "/TIGER_project_page/compare/Projector/lq.png",
+    second: "/TIGER_project_page/compare/Projector/sr.png"
   },
   {
-    first: "/TADSR_HomePage/compare/0263x4d/lq.png",
-    second: "/TADSR_HomePage/compare/0263x4d/sr.png"
+    first: "/TIGER_project_page/compare/Multilingual/lq.png",
+    second: "/TIGER_project_page/compare/Multilingual/sr.png"
   },
   {
-    first: "/TADSR_HomePage/compare/0338x4d/lq.png",
-    second: "/TADSR_HomePage/compare/0338x4d/sr.png"
+    first: "/TIGER_project_page/compare/Shoppingsign/lq.png",
+    second: "/TIGER_project_page/compare/Shoppingsign/sr.png"
   },
   {
-    first: "/TADSR_HomePage/compare/0035x4d/lq.png",
-    second: "/TADSR_HomePage/compare/0035x4d/sr.png"
+    first: "/TIGER_project_page/compare/Manual1/lq.png",
+    second: "/TIGER_project_page/compare/Manual1/sr.png"
   },
   {
-    first: "/TADSR_HomePage/compare/0007x4d/lq.png",
-    second: "/TADSR_HomePage/compare/0007x4d/sr.png"
+    first: "/TIGER_project_page/compare/Washing/lq.png",
+    second: "/TIGER_project_page/compare/Washing/sr.png"
   },
   {
-    first: "/TADSR_HomePage/compare/0279x4d/lq.png",
-    second: "/TADSR_HomePage/compare/0279x4d/sr.png"
+    first: "/TIGER_project_page/compare/Shoppingsign/lq.png",
+    second: "/TIGER_project_page/compare/Shoppingsign/sr.png"
   },
   {
-    first: "/TADSR_HomePage/compare/151/lq.png",
-    second: "/TADSR_HomePage/compare/151/sr.png"
+    first: "/TIGER_project_page/compare/Manual0/lq.png",
+    second: "/TIGER_project_page/compare/Manual0/sr.png"
+  },
+  {
+    first: "/TIGER_project_page/compare/Traffic/lq.png",
+    second: "/TIGER_project_page/compare/Traffic/sr.png"
+  },
+  {
+    first: "/TIGER_project_page/compare/Uniqlo0/lq.png",
+    second: "/TIGER_project_page/compare/Uniqlo0/sr.png"
   }
 ];
 
