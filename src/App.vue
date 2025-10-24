@@ -6,44 +6,44 @@ import { onMounted, ref } from 'vue';
 const currentSlide = ref(0);
 const imageSlides = [
   {
-    first: "/TIGER_project_page/compare/GreenHouse/lq.png",
-    second: "/TIGER_project_page/compare/GreenHouse/sr.png"
+    first: "/compare/GreenHouse/lq.png",
+    second: "/compare/GreenHouse/sr.png"
   },
   {
-    first: "/TIGER_project_page/compare/Projector/lq.png",
-    second: "/TIGER_project_page/compare/Projector/sr.png"
+    first: "/compare/Projector/lq.png",
+    second: "/compare/Projector/sr.png"
   },
   {
-    first: "/TIGER_project_page/compare/Multilingual/lq.png",
-    second: "/TIGER_project_page/compare/Multilingual/sr.png"
+    first: "/compare/Multilingual/lq.png",
+    second: "/compare/Multilingual/sr.png"
   },
   {
-    first: "/TIGER_project_page/compare/Shoppingsign/lq.png",
-    second: "/TIGER_project_page/compare/Shoppingsign/sr.png"
+    first: "/compare/Shoppingsign/lq.png",
+    second: "/compare/Shoppingsign/sr.png"
   },
   {
-    first: "/TIGER_project_page/compare/Manual1/lq.png",
-    second: "/TIGER_project_page/compare/Manual1/sr.png"
+    first: "/compare/Manual1/lq.png",
+    second: "/compare/Manual1/sr.png"
   },
   {
-    first: "/TIGER_project_page/compare/Washing/lq.png",
-    second: "/TIGER_project_page/compare/Washing/sr.png"
+    first: "/compare/Washing/lq.png",
+    second: "/compare/Washing/sr.png"
   },
   {
-    first: "/TIGER_project_page/compare/Shoppingsign/lq.png",
-    second: "/TIGER_project_page/compare/Shoppingsign/sr.png"
+    first: "/compare/Shoppingsign/lq.png",
+    second: "/compare/Shoppingsign/sr.png"
   },
   {
-    first: "/TIGER_project_page/compare/Manual0/lq.png",
-    second: "/TIGER_project_page/compare/Manual0/sr.png"
+    first: "/compare/Manual0/lq.png",
+    second: "/compare/Manual0/sr.png"
   },
   {
-    first: "/TIGER_project_page/compare/Traffic/lq.png",
-    second: "/TIGER_project_page/compare/Traffic/sr.png"
+    first: "/compare/Traffic/lq.png",
+    second: "/compare/Traffic/sr.png"
   },
   {
-    first: "/TIGER_project_page/compare/Uniqlo0/lq.png",
-    second: "/TIGER_project_page/compare/Uniqlo0/sr.png"
+    first: "/compare/Uniqlo0/lq.png",
+    second: "/compare/Uniqlo0/sr.png"
   }
 ];
 
