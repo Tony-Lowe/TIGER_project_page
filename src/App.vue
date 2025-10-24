@@ -136,7 +136,6 @@ onMounted(() => {
     ></span>
   </div>
 
-  </div>
 
   <div class="content-abstract">
     <h2 style="text-align:center;">Abstract</h2>
