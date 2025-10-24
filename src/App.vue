@@ -59,12 +59,12 @@ onMounted(() => {
 
 <template>
 
-  <div class="content-title">
+  <!-- <div class="content-title">
     <div style="display: flex; justify-content: center; align-items: center; height: auto;">
       <img src="/TADSR_files/TADSR.png" alt="" style="width: 170px;">
-    </div>
+    </div> -->
     
-  <h1 style="text-align: center; font-size: 30px; margin: 15px 0px 5px 0px;"><strong>Time-Aware One Step Diffusion Network for Real-World Image Super-Resolution</strong></h1>
+  <h1 style="text-align: center; font-size: 30px; margin: 15px 0px 5px 0px;"><strong>Restore Text First, Enhance Image Later: Two-Stage Scene Text Image Super-Resolution with Glyph Structure Guidance</strong></h1>
 
   <p id="authors" style="text-align: center; margin: 10px 0px;">
     <a href="" style="font-size: 20px;" >Minxing Luo<sup>1,2,*</sup></a>, 
@@ -204,22 +204,16 @@ onMounted(() => {
     </p>
     <h2>Visual Comparisons</h2>
     <figure>
-      <img src="/TADSR_files/Vision_Compare_1.png" alt="synth_result" style="width: 100%;">
+      <img src="/TIGER_files/Visual_Comparison.png" alt="Real-world-result" style="width: 100%;">
     </figure>
     <figure>
-      <img src="/TADSR_files/Vision_Compare_2.png" alt="synth_result" style="width: 100%;">
+      <img src="/TIGER_files/Visual_Comparison_1.png" alt="Additional-Real-world-result" style="width: 100%;">
     </figure>
       Compared to other SD-based Real-ISR methods,TADSR consistently produces clearer, more realistic,and more natural results, demonstrating its stronger image restoration capability while preserving fidelity.
-    <h2>Adjustable SR Results</h2>
-    <figure>
-      <img src="/TADSR_files/Vision_Compare_ts.png" alt="synth_result" style="width: 100%;">
-    </figure>
-    With increasing timestep condition \(t_{s}\), TADSR progressively leverages the generative priors of SD for image restoration, leading to more generation-driven results. 
-    This allows users to flexibly balance fidelity and generation by tuning the timestep condition \(t_{s}\).
   </div>
 
 
-<div class="content">
+<!-- <div class="content">
   <h4>BibTex</h4>
   <pre class="bibtex-code">
     <code>
@@ -234,7 +228,7 @@ onMounted(() => {
       }
     </code>
   </pre>
-</div>
+</div> -->
 
 
   <footer class="footer">
@@ -243,7 +237,7 @@ onMounted(() => {
         <!-- <div class="column is-8"> -->
             <p>
               This website's source code is borrowed from the <a
-              href="GitHub - google/dreambooth">DreamBooth</a> project page.
+              href="https://github.com/zty557/TADSR_HomePage">TADSR</a> project page.
             </p>
         <!-- </div> -->
       </div>
