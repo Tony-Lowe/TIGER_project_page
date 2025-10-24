@@ -397,20 +397,21 @@ a, a:visited {
 }
 
 .custom-button {
-  width: 70px;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   background-color: #2e2e2e;
   color: white;
   border: none;
   border-radius: 999px;
-  padding: 8px 16px;
+  padding: 10px 24px;
   margin: 0 10px;
   text-decoration: none;
   font-family: sans-serif;
   font-weight: 500;
   font-size: 16px;
   transition: background-color 0.3s ease;
+  white-space: nowrap;
 }
 
 .custom-button:hover {
