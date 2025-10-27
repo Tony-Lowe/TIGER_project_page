@@ -95,7 +95,7 @@ onMounted(() => {
   </p>
 
   <div class="button-container">
-    <a href="https://arxiv.org/" target="_blank" class="custom-button">
+    <a href="http://arxiv.org/abs/2510.21590" target="_blank" class="custom-button">
       <svg class="arxiv-icon" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg" style="margin-right: 5px;"> 
         <path
          fill="currentColor"
@@ -114,7 +114,6 @@ onMounted(() => {
     </a>
     &nbsp;&nbsp;
   </div>
-
 
   <!-- 轮播图像对比展示 -->
   <div class="carousel-container">
@@ -399,12 +398,11 @@ a, a:visited {
 .custom-button {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
   background-color: #2e2e2e;
   color: white;
   border: none;
   border-radius: 999px;
-  padding: 10px 24px;
+  padding: 8px 16px;
   margin: 0 10px;
   text-decoration: none;
   font-family: sans-serif;
