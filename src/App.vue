@@ -219,22 +219,19 @@ onMounted(() => {
   </div>
 
 
-<!-- <div class="content">
+<div class="content">
   <h4>BibTex</h4>
   <pre class="bibtex-code">
     <code>
-      @misc{zhang2025timeawarestepdiffusionnetwork,
-        title={Time-Aware One Step Diffusion Network for Real-World Image Super-Resolution}, 
-        author={Tainyi Zhang and Zheng-Peng Duan and Peng-Tao Jiang and Bo Li and Ming-Ming Cheng and Chun-Le Guo and Chongyi Li},
-        year={2025},
-        eprint={2508.16557},
-        archivePrefix={arXiv},
-        primaryClass={eess.IV},
-        url={https://arxiv.org/abs/2508.16557}, 
-      }
+      @article{luo2025restore,
+        title={Restore Text First, Enhance Image Later: Two-Stage Scene Text Image Super-Resolution with Glyph Structure Guidance},
+        author={Luo, Minxing and Fan, Linlong and Qiushi, Wang and Wu, Ge and Luo, Yiyan and Yu, Yuhang and Chen, Jinwei and Wang, Yaxing and Fan, Qingnan and Yang, Jian},
+        journal={arXiv preprint arXiv:2510.21590},
+        year={2025}
+    }
     </code>
   </pre>
-</div> -->
+</div>
 
 
   <footer class="footer">
