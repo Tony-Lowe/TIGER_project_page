@@ -86,7 +86,7 @@ onMounted(() => {
     <a href="" style="font-size: 20px;">Jian Yang<sup>1,&dagger;</sup></a>
     <br>
     <span style="font-size: 18px; font-weight: bold; ;"><sup>1</sup>PCA Lab, VCIP, CS, Nankai University. </span> &nbsp;&nbsp;
-    <span style="font-size: 18px; font-weight: bold; ;"><sup>2</sup>vivo Mobile Communication Co. Ltd.</span> &nbsp;&nbsp
+    <span style="font-size: 18px; font-weight: bold; ;"><sup>2</sup>vivo BlueImage Lab, vivo Mobile Communication Co., Ltd.</span> &nbsp;&nbsp
     <span style="font-size: 18px; font-weight: bold; ;"><sup>*</sup>Equal Contribution.</span>
     <br>
     <span style="font-size: 18px; font-weight: bold; ;"><sup>3</sup>SDS, The Chinese University of Hong Kong, Shenzhen.</span> &nbsp;&nbsp;
