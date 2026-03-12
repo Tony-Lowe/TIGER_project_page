@@ -106,11 +106,18 @@ onMounted(() => {
       <span>arXiv</span>
     </a>
     &nbsp;&nbsp;
-    <a href="https://github.com/Tony-Lowe/TIGER_project_page" target="_blank" class="custom-button">
+    <a href="https://github.com/OpenVeraTeam/TiGeSR" target="_blank" class="custom-button">
       <span class="icon" style="margin-right: 10px;">
         <i class="fab fa-github"></i>
       </span>
       <span>Code (Coming Soon)</span>
+    </a>
+    &nbsp;&nbsp;
+    <a href="https://huggingface.co/datasets/mxluocv/UZ-ST" target="_blank" class="custom-button">
+      <span class="icon" style="margin-right: 10px;">
+        <i class="far fa-images"></i>
+      </span>
+      <span>Dataset</span>
     </a>
     &nbsp;&nbsp;
   </div>
