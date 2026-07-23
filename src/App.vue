@@ -25,7 +25,7 @@ function moveSlide(direction: number) {
 <template>
   <main>
     <section class="hero">
-      <div class="hero-mark">TIGER <span>🐯</span></div>
+      <div class="hero-mark"><img src="/tiger-mascot.png" alt="TIGER mascot" /> TIGER</div>
       <p class="eyebrow">CVPR 2026 · Scene Text Image Super-Resolution</p>
       <h1>Restore Text First,<br><em>Enhance Image Later.</em></h1>
       <p class="subtitle">Two-stage scene text image super-resolution with glyph structure guidance.</p>
@@ -144,7 +144,8 @@ main { overflow: hidden; font-family: Georgia, 'Times New Roman', serif; }
 .hero { position: relative; padding: 5.5rem 1.5rem 4.5rem; text-align: center; background: radial-gradient(circle at 50% -10%, #fff8dc 0, #f5f0e6 55%, #e6dccb 100%); border-bottom: 1px solid #c8b89e; }
 .hero::before { content: ''; position: absolute; inset: 0; pointer-events: none; opacity: .25; background-image: linear-gradient(30deg, transparent 47%, #cf6f2e 48%, #cf6f2e 50%, transparent 51%), linear-gradient(150deg, transparent 47%, #cf6f2e 48%, #cf6f2e 50%, transparent 51%); background-size: 54px 94px; mask-image: linear-gradient(to bottom, black, transparent 65%); }
 .hero > * { position: relative; }
-.hero-mark { display: inline-flex; align-items: center; gap: .35rem; padding: .35rem .8rem; border: 1px solid #bd642a; color: #bd642a; font-family: 'Caveat', cursive; font-size: 1.65rem; letter-spacing: .06em; background: #fff8e7cc; transform: rotate(-2deg); }
+.hero-mark { display: inline-flex; align-items: center; gap: .35rem; padding: .18rem .8rem .18rem .25rem; border: 1px solid #bd642a; color: #bd642a; font-family: 'Caveat', cursive; font-size: 1.65rem; letter-spacing: .06em; background: #fff8e7cc; transform: rotate(-2deg); }
+.hero-mark img { width: 38px; height: 38px; border-radius: 50%; object-fit: cover; }
 .eyebrow, .section-kicker { margin: 1.5rem 0 .65rem; color: #a84f1d; font-size: .72rem; font-family: 'Caveat', cursive; font-weight: 700; letter-spacing: .17em; text-transform: uppercase; }
 h1, h2, h3, p { margin-top: 0; }
 h1 { max-width: 980px; margin: 0 auto; font-family: 'Playfair Display', Georgia, serif; font-size: clamp(2.7rem, 7vw, 5.8rem); line-height: .96; letter-spacing: -.055em; }
