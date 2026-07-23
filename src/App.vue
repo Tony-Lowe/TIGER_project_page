@@ -90,7 +90,7 @@ function moveSlide(direction: number) {
         </div>
       </div>
       <figure class="paper-figure">
-        <img src="/TIGER_project_page/TIGER_files/overview.png" alt="Overview of the two-stage TIGER framework" />
+        <img src="/TIGER_files/overview.png" alt="Overview of the two-stage TIGER framework" />
       </figure>
     </section>
 
@@ -105,8 +105,8 @@ function moveSlide(direction: number) {
         <div><strong>49,675</strong><span>text lines</span></div>
         <div><strong>×14.29</strong><span>maximum zoom</span></div>
       </div>
-      <figure class="wide-figure"><img src="/TIGER_project_page/TIGER_files/datapipe.png" alt="UZ-ST data collection and alignment pipeline" /></figure>
-      <figure class="wide-figure"><img src="/TIGER_project_page/TIGER_files/datasamples.png" alt="Examples from the UZ-ST dataset" /></figure>
+      <figure class="wide-figure"><img src="/TIGER_files/datapipe.png" alt="UZ-ST data collection and alignment pipeline" /></figure>
+      <figure class="wide-figure"><img src="/TIGER_files/datasamples.png" alt="Examples from the UZ-ST dataset" /></figure>
     </section>
 
     <section class="results section-wrap">
@@ -114,11 +114,11 @@ function moveSlide(direction: number) {
       <h2>Better image quality. Better text accuracy.</h2>
       <p>TIGER consistently improves reconstruction quality and text recognition accuracy on Real-CE and UZ-ST, especially in challenging long-range, multilingual, and severely degraded scenes.</p>
       <div class="results-grid">
-        <figure><img src="/TIGER_project_page/TIGER_files/Quantitative_Comparisons.png" alt="Quantitative results" /></figure>
-        <figure><img src="/TIGER_project_page/TIGER_files/Quantitative_Comparisons_1.png" alt="Quantitative results on cropped images" /></figure>
+        <figure><img src="/TIGER_files/Quantitative_Comparisons.png" alt="Quantitative results" /></figure>
+        <figure><img src="/TIGER_files/Quantitative_Comparisons_1.png" alt="Quantitative results on cropped images" /></figure>
       </div>
-      <figure class="wide-figure"><img src="/TIGER_project_page/TIGER_files/Visual_Comparison.png" alt="Visual comparisons with previous methods" /></figure>
-      <figure class="wide-figure"><img src="/TIGER_project_page/TIGER_files/Visual_Comparison_1.png" alt="Additional visual comparisons" /></figure>
+      <figure class="wide-figure"><img src="/TIGER_files/Visual_Comparison.png" alt="Visual comparisons with previous methods" /></figure>
+      <figure class="wide-figure"><img src="/TIGER_files/Visual_Comparison_1.png" alt="Additional visual comparisons" /></figure>
     </section>
 
     <section class="citation section-wrap">
