@@ -1,439 +1,202 @@
 <script setup lang="ts">
+import '@fontsource/caveat/700.css'
+import '@fontsource/playfair-display/600.css'
+import '@fontsource/playfair-display/700.css'
 import { ImgComparisonSlider } from '@img-comparison-slider/vue'
-import { onMounted, ref } from 'vue';
+import { ref } from 'vue'
 
-// 轮播相关状态
-const currentSlide = ref(0);
+const currentSlide = ref(0)
 const imageSlides = [
-  {
-    first: "/TIGER_project_page/compare/GreenHouse/lq.png",
-    second: "/TIGER_project_page/compare/GreenHouse/sr.png"
-  },
-  {
-    first: "/TIGER_project_page/compare/Projector/lq.png",
-    second: "/TIGER_project_page/compare/Projector/sr.png"
-  },
-  {
-    first: "/TIGER_project_page/compare/Multilingual/lq.png",
-    second: "/TIGER_project_page/compare/Multilingual/sr.png"
-  },
-  {
-    first: "/TIGER_project_page/compare/Shoppingsign/lq.png",
-    second: "/TIGER_project_page/compare/Shoppingsign/sr.png"
-  },
-  {
-    first: "/TIGER_project_page/compare/Manual1/lq.png",
-    second: "/TIGER_project_page/compare/Manual1/sr.png"
-  },
-  {
-    first: "/TIGER_project_page/compare/Washing/lq.png",
-    second: "/TIGER_project_page/compare/Washing/sr.png"
-  },
-  {
-    first: "/TIGER_project_page/compare/Shoppingsign/lq.png",
-    second: "/TIGER_project_page/compare/Shoppingsign/sr.png"
-  },
-  {
-    first: "/TIGER_project_page/compare/Manual0/lq.png",
-    second: "/TIGER_project_page/compare/Manual0/sr.png"
-  },
-  {
-    first: "/TIGER_project_page/compare/Traffic/lq.png",
-    second: "/TIGER_project_page/compare/Traffic/sr.png"
-  },
-  {
-    first: "/TIGER_project_page/compare/Uniqlo0/lq.png",
-    second: "/TIGER_project_page/compare/Uniqlo0/sr.png"
-  }
-];
+  { label: 'Greenhouse', first: '/TIGER_project_page/compare/GreenHouse/lq.png', second: '/TIGER_project_page/compare/GreenHouse/sr.png' },
+  { label: 'Projector', first: '/TIGER_project_page/compare/Projector/lq.png', second: '/TIGER_project_page/compare/Projector/sr.png' },
+  { label: 'Multilingual', first: '/TIGER_project_page/compare/Multilingual/lq.png', second: '/TIGER_project_page/compare/Multilingual/sr.png' },
+  { label: 'Shop sign', first: '/TIGER_project_page/compare/Shoppingsign/lq.png', second: '/TIGER_project_page/compare/Shoppingsign/sr.png' },
+  { label: 'Manual', first: '/TIGER_project_page/compare/Manual1/lq.png', second: '/TIGER_project_page/compare/Manual1/sr.png' },
+  { label: 'Washing', first: '/TIGER_project_page/compare/Washing/lq.png', second: '/TIGER_project_page/compare/Washing/sr.png' },
+  { label: 'Traffic', first: '/TIGER_project_page/compare/Traffic/lq.png', second: '/TIGER_project_page/compare/Traffic/sr.png' },
+  { label: 'Uniqlo', first: '/TIGER_project_page/compare/Uniqlo0/lq.png', second: '/TIGER_project_page/compare/Uniqlo0/sr.png' },
+]
 
-// 切换到上一张
-const prevSlide = () => {
-  currentSlide.value = currentSlide.value > 0 ? currentSlide.value - 1 : imageSlides.length - 1;
-};
-
-// 切换到下一张
-const nextSlide = () => {
-  currentSlide.value = currentSlide.value < imageSlides.length - 1 ? currentSlide.value + 1 : 0;
-};
-
-onMounted(() => {
-  // 确保MathJax已加载并渲染公式
-  if (window.MathJax) {
-    window.MathJax.typeset(); // 重新渲染页面中的数学公式
-  }
-});
+function moveSlide(direction: number) {
+  currentSlide.value = (currentSlide.value + direction + imageSlides.length) % imageSlides.length
+}
 </script>
 
 <template>
+  <main>
+    <section class="hero">
+      <div class="hero-mark">TIGER <span>🐯</span></div>
+      <p class="eyebrow">CVPR 2026 · Scene Text Image Super-Resolution</p>
+      <h1>Restore Text First,<br><em>Enhance Image Later.</em></h1>
+      <p class="subtitle">Two-stage scene text image super-resolution with glyph structure guidance.</p>
 
-  <!-- <div class="content-title">
-    <div style="display: flex; justify-content: center; align-items: center; height: auto;">
-      <img src="/TADSR_files/TADSR.png" alt="" style="width: 170px;">
-    </div> -->
-    
-  <h1 style="text-align: center; font-size: 30px; margin: 15px 0px 5px 0px;"><strong>Restore Text First, Enhance Image Later: Two-Stage Scene Text Image Super-Resolution with Glyph Structure Guidance</strong></h1>
+      <p class="authors">
+        Minxing Luo<sup>1,2,*</sup> · Linlong Fan<sup>2,*</sup> · Qiushi Wang<sup>2,3</sup> · Ge Wu<sup>1</sup> ·
+        Yiyan Luo<sup>2</sup> · Yuhang Yu<sup>2</sup> · Jinwei Chen<sup>2</sup> · Yaxing Wang<sup>1,4</sup> ·
+        Qingnan Fan<sup>2,†</sup> · Jian Yang<sup>1,5,†</sup>
+      </p>
+      <p class="affiliations"><sup>1</sup>PCA Lab, VCIP, College of Computer Science, Nankai University &nbsp; <sup>2</sup>vivo BlueImage Lab, vivo Mobile Communication Co., Ltd. &nbsp; <sup>3</sup>SDS, CUHK, Shenzhen &nbsp; <sup>4</sup>NKIARI, Shenzhen Futian &nbsp; <sup>5</sup>PCA Lab, School of Intelligence Science and Technology, Nanjing University</p>
 
-  <p id="authors" style="text-align: center; margin: 10px 0px;">
-    <a href="" style="font-size: 20px;" >Minxing Luo<sup>1,2,*</sup></a>, 
-    <a href="" style="font-size: 20px;" >Linlong Fan<sup>2,*</sup></a>, 
-    <a href="" style="font-size: 20px;" >Wang Qiushi<sup>2,3</sup></a>, 
-    <a href="" style="font-size: 20px;" >Ge Wu<sup>1</sup></a>,<br>
-    <a href="" style="font-size: 20px;" >Yiyan Luo<sup>2</sup></a>,
-    <a href="" style="font-size: 20px;" >Jinwei Chen<sup>2</sup></a>,
-    <a href="https://yaxingwang.github.io/" style="font-size: 20px;" >Yaxing Wang<sup>1</sup></a>,
-    <a href="https://fqnchina.github.io/" style="font-size: 20px;" >Qingnan Fan<sup>2,&dagger;</sup></a>,
-    <a href="" style="font-size: 20px;">Jian Yang<sup>1,&dagger;</sup></a>
-    <br>
-    <span style="font-size: 18px; font-weight: bold; ;"><sup>1</sup>PCA Lab, VCIP, CS, Nankai University. </span> &nbsp;&nbsp;
-    <span style="font-size: 18px; font-weight: bold; ;"><sup>2</sup>vivo BlueImage Lab, vivo Mobile Communication Co., Ltd.</span> &nbsp;&nbsp
-    <span style="font-size: 18px; font-weight: bold; ;"><sup>*</sup>Equal Contribution.</span>
-    <br>
-    <span style="font-size: 18px; font-weight: bold; ;"><sup>3</sup>SDS, The Chinese University of Hong Kong, Shenzhen.</span> &nbsp;&nbsp;
-    <span style="font-size: 18px; font-weight: bold; ;"><sup>&dagger;</sup>Corresponding author.</span> <br>
+      <nav class="actions" aria-label="Project resources">
+        <a href="https://openaccess.thecvf.com/content/CVPR2026/html/Luo_Restore_Text_First_Enhance_Image_Later_Two-Stage_Scene_Text_Image_CVPR_2026_paper.html" target="_blank" rel="noreferrer">Paper ↗</a>
+        <a href="https://arxiv.org/abs/2510.21590" target="_blank" rel="noreferrer">arXiv ↗</a>
+        <a href="https://github.com/OpenVeraTeam/TiGeSR" target="_blank" rel="noreferrer">Code ↗</a>
+        <a href="https://huggingface.co/mxluocv/TiGeSR" target="_blank" rel="noreferrer">Models ↗</a>
+        <a href="https://huggingface.co/datasets/mxluocv/UZ-ST" target="_blank" rel="noreferrer">UZ-ST ↗</a>
+      </nav>
+    </section>
 
-  </p>
-
-  <div class="button-container">
-    <a href="http://arxiv.org/abs/2510.21590" target="_blank" class="custom-button">
-      <svg class="arxiv-icon" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg" style="margin-right: 5px;"> 
-        <path
-         fill="currentColor"
-         d="m 119.65,351.996 c -5.84961,0.13477 -11.1943,-3.29883 -13.502,-8.67578 -2.19629,-5.27051 -0.61914,-8.9668 4.19727,-15.8652 7.05469,-10.3799 78.8242,-96.5625 78.8242,-96.5625 l -15.8828,-14.8633 c -13.3809,-13.3779 -13.9561,-31.333 -1.50977,-43.7754 l 18.4922,-17.6133 -51.5977,-63.377 c -4.00586,-4.26758 -6.48535,-11.7559 -4.24805,-17.1309 2.27832,-5.53613 7.69727,-9.12891 13.6836,-9.07031 3.83398,0.0957 7.43262,1.87402 9.83789,4.86133 l 61.3691,57.0566 94.5762,-90.0703 c 3.19434,-3.08398 7.44336,-4.83984 11.8828,-4.91016 1.60449,0.0039 3.19824,0.245117 4.73242,0.714844 5.7793,1.80566 10.249,6.41797 11.8711,12.252 1.2998,5.47363 -0.27637,11.2334 -4.18164,15.2832 l -83.0859,100.011996 14.8789,13.834 c 11.0957,10.0029 11.1543,27.3906 0.12695,37.4688 l -16.2949,15.6309 56.2559,66.4434 0.0742,0.0859 0.0664,0.0899 c 5.02734,6.53125 7.43164,11.5615 4.83984,17.9395 -3.13379,5.96875 -8.69727,10.29 -15.2559,11.8516 -0.67676,0.0908 -1.35938,0.13574 -2.04297,0.13671 l -0.004,-0.0117 c -4.42871,-0.27051 -8.61035,-2.13086 -11.7754,-5.24023 l -0.13086,-0.10743 -0.12304,-0.11132 -65.207,-59.127 -89.8965,86.2402 c 0,0 -5.33398,6.47754 -10.9707,6.61133 z m 178.104,-33.041 c 0.47852,-0.002 0.95703,-0.0332 1.43164,-0.0957 4.84277,-1.33301 8.95605,-4.54004 11.4316,-8.91016 1.44922,-3.5625 1.00293,-6.45703 -4.19727,-13.2148 l -56.0586,-66.2188 -26.375,25.3027 64.9551,58.9062 c 2.33887,2.41504 5.46484,3.91113 8.8125,4.2168 v 0.0137 z M 192.436,227.402 334.446,57.244 c 2.78711,-3.48926 4.5293,-6.97949 3.3418,-10.9121 -1.16113,-4.30273 -4.43457,-7.71777 -8.68555,-9.05664 -1.08105,-0.333984 -2.20508,-0.503906 -3.33594,-0.505859 -3.20801,0.07617 -6.26953,1.35645 -8.57617,3.58789 l -142.033,135.284999 c -11.1719,11.1719 -9.48242,26.0195 1.39258,36.8945 z"
-         id="path2"
-         style="stroke-width:0.416233" />
-      </svg>
-      <span>arXiv</span>
-    </a>
-    &nbsp;&nbsp;
-    <a href="https://github.com/OpenVeraTeam/TiGeSR" target="_blank" class="custom-button">
-      <span class="icon" style="margin-right: 10px;">
-        <i class="fab fa-github"></i>
-      </span>
-      <span>Code (Coming Soon)</span>
-    </a>
-    &nbsp;&nbsp;
-    <a href="https://huggingface.co/datasets/mxluocv/UZ-ST" target="_blank" class="custom-button">
-      <span class="icon" style="margin-right: 10px;">
-        <i class="far fa-images"></i>
-      </span>
-      <span>Dataset</span>
-    </a>
-    &nbsp;&nbsp;
-  </div>
-
-  <!-- 轮播图像对比展示 -->
-  <div class="carousel-container">
-    <button class="carousel-btn prev-btn" @click="prevSlide">‹</button>
-    <div class="carousel-slider">
-      <ImgComparisonSlider>
-        <img
-          slot="first"
-          style="height: 400px"
-          :src="imageSlides[currentSlide].first"
-        />
-        <img
-          slot="second"
-          style="height: 400px"
-          :src="imageSlides[currentSlide].second"
-        />
-      </ImgComparisonSlider>
-    </div>
-    <button class="carousel-btn next-btn" @click="nextSlide">›</button>
-  </div>
-  <div class="carousel-indicators">
-    <span 
-      v-for="(_, index) in imageSlides" 
-      :key="index"
-      :class="['indicator', { active: index === currentSlide }]"
-      @click="currentSlide = index"
-    ></span>
-  </div>
-
-
-  <div class="content-abstract">
-    <h2 style="text-align:center;">Abstract</h2>
-    <p>Current generative super-resolution methods show strong performance on natural images but distort text, creating a fundamental trade-off between image quality and textual readability. To address this, we introduce <strong>TIGER</strong> (<strong>T</strong>ext–<strong>I</strong>mage <strong>G</strong>uided sup<strong>E</strong>r-<strong>R</strong>esolution), a novel two-stage framework that breaks this trade-off through a <em>"text-first, image-later"</em> paradigm. TIGER explicitly decouples glyph restoration from image enhancement: it first reconstructs precise text structures and then uses them to guide subsequent full-image super-resolution. This glyph-to-image guidance ensures both high fidelity and visual consistency. To support comprehensive training and evaluation, we also contribute the <strong>UltraZoom-ST</strong> (UltraZoom-Scene Text), the first scene text dataset with extreme zoom (<strong>×14.29</strong>). Extensive experiments show that TIGER achieves <strong>state-of-the-art</strong> performance, enhancing readability while preserving overall image quality. </p>
-  </div>
-  <!-- <div class="content">
-    <h2>Background</h2>
-    <p> Given a particular subject such as clock (shown in the real images on the left), it is very challenging to generate it in different contexts with state-of-the-art text-to-image models, while maintaining high fidelity to its key visual features. Even with dozens of iterations over a text prompt that contains a detailed description of the appearance of the clock (<em>"retro style yellow alarm clock with a white clock face and a yellow number three on the right part of the clock face in the jungle"</em>), the Imagen model [Saharia et al., 2022] can't reconstruct its key visual features (third column). Furthermore, even models whose text embedding lies in a shared language-vision space and can create semantic variations of the image, such as DALL-E2 [Ramesh et al., 2022], can neither reconstruct the appearance of the given subject nor modify the context (second column). In contrast, our approach (right) can synthesize the clock with high fidelity and in new contexts (<em>"a [V] clock in the jungle"</em>).</p>
-    <br>
-    <img class="summary-img" src="/ DreamBooth_files/background.png" style="width:100%;"> <br>
-  </div> -->
-  <div class="content">
-    <h2 style="text-align:center;">Method</h2>
-    <p>Current image super-resolution methods focus on enhancing overall image quality but often fail to accurately preserve glyph structures, leading to distorted text in super-resolved images. 
-    Conversely, text image super-resolution methods improve text readability but do not retain the global semantic information of the background, causing incoherence between text and non-text regions.
-   </p>
-    <br>
-    <figure>
-      <img src="/TIGER_files/overview.png" alt="Overview image" style="width: 100%;">
-    </figure>
-    <p>
-  To leverage the strengths of both approaches, we introduce the TIGER framework.
-  As illustrated in the pipeline figure, the TIGER framework is composed of two stages: the <strong>Text Restoration stage</strong> and the <strong>Image Enhancement stage</strong>.
-  In the text restoration stage, we extract the text regions from the LR input \(x_{L} \in \mathbb{R}^{H \times W \times C}\) and feed them into the glyph structure restoration model to restore the text structure based on the text region of the LR input and the predicted text.
-  We then reassemble the text structures to their original positions to obtain a text mask \(\hat{x}_{m} \in \mathbb{R}^{H \times W \times C}\).
-  In the image enhancement stage, the text mask and LR input are then processed by a ControlNet-like network to obtain the enhanced SR output \(\hat{x}_{H} \in \mathbb{R}^{H \times W \times C}\).
-    </p>
-  </div>
-
-  <div class="content">
-    <h2 style="text-align:center;">Dataset and Benchmarks</h2>
-    <p>Existing datasets offer only subtle degradation, making them insufficient for evaluating model robustness.
-    To address the lack of both challenging and publicly available datasets tailored for scene text image super-resolution, especially for Chinese text, we introduce <strong>UltraZoom-ST</strong>, a challenging real-world benchmark.
-   </p>
-    <br>
-    <figure>
-      <img src="/TIGER_files/datapipe.png" alt="Overview of UltraZoom-ST. (a) Real-CE LRs show only mild degradation (red box), while UltraZoom-ST LRs exhibit stronger degradation (red box), enabling a more comprehensive evaluation. (b) Coarse-to-fine alignment: images are sorted by focal length, each warped to the next higher-focal neighbor using an estimated homography matrix, then refined to the 200 mm ground truth." style="width: 100%;">
-    </figure>
-    <figure>
-      <img src="/TIGER_files/datasamples.png" alt="Overview image" style="width: 100%;">
-    </figure>
-    <p>
-    It is collected using ViVO X200 Ultra equipped with four fixed focal lengths (14 mm, 35 mm, 85 mm, 200 mm), enabling image pairs with extreme ×14.29 zoom.
-    However, such extreme zoom introduces severe misalignment that breaks registration methods, originally designed for moderate ×2 to ×4 zoom.
-    To overcome this, we design a <strong>Cascade Coarse-to-fine Alignment</strong> pipeline: images are first sorted by focal length, and each low-quality image is sequentially aligned to its next higher-focal neighbor using either optimization-based registration or feature-based extractors (e.g., SIFT, SURF, RIPE), then refined against the 200 mm ground truth for precise alignment.
-    Through meticulous annotating and aligning, we obtained a total of 5,036 image pairs, with 49,675 lines of text.
-    We set images under 200 mm focal length as ground truth, and obtain 1,439, 1,798, and 1,799 pairs for ×14.29, ×5.71, and ×2.35 zooming modes, respectively.
-    Among them, we randomly select 470, 589, and 581 pairs for evaluation under each zooming mode.
-    Each image pair contains one or more text lines.
-    These evaluation sets enable us to evaluate the performance of models under more complex and challenging scenarios.
-    </p>
-  </div>
-
-  <div class="content">
-    <h2 style="text-align:center;">Results</h2>
-    <h2>Quantitative Comparisons</h2>
-    <figure>
-      <img src="/TIGER_files/Quantitative_Comparisons.png" alt="Quantitative_Comparisons" style="width: 100%;">
-    </figure>
-    <figure>
-      <img src="/TIGER_files/Quantitative_Comparisons_1.png" alt="Quantitative_Comparisons on Cropped Images" style="width: 100%;">
-    </figure>
-    <p>
-      TIGER outperforms competing methods on both the Real-CE and UltraZoom-ST benchmarks in terms of image quality and text accuracy, owing to the decoupling strategy.
-    </p>
-    <h2>Visual Comparisons</h2>
-    <figure>
-      <img src="/TIGER_files/Visual_Comparison.png" alt="Real-world-result" style="width: 100%;">
-    </figure>
-    <figure>
-      <img src="/TIGER_files/Visual_Comparison_1.png" alt="Additional-Real-world-result" style="width: 100%;">
-    </figure>
-      Compared with existing text image SR methods, our approach reconstructs clearer and more accurate glyph structures while preserving realistic textures and global consistency, demonstrating superior robustness under complex degradations.
-  </div>
-
-
-<div class="content">
-  <h4>BibTex</h4>
-  <pre class="bibtex-code">
-    <code>
-      @article{luo2025restore,
-        title={Restore Text First, Enhance Image Later: Two-Stage Scene Text Image Super-Resolution with Glyph Structure Guidance},
-        author={Luo, Minxing and Fan, Linlong and Qiushi, Wang and Wu, Ge and Luo, Yiyan and Yu, Yuhang and Chen, Jinwei and Wang, Yaxing and Fan, Qingnan and Yang, Jian},
-        journal={arXiv preprint arXiv:2510.21590},
-        year={2025}
-    }
-    </code>
-  </pre>
-</div>
-
-
-  <footer class="footer">
-    <div class="container">
-      <div class="columns is-centered">
-        <!-- <div class="column is-8"> -->
-            <p>
-              This website's source code is borrowed from the <a
-              href="https://github.com/zty557/TADSR_HomePage">TADSR</a> project page.
-            </p>
-        <!-- </div> -->
+    <section class="comparison-band" aria-label="Interactive visual comparisons">
+      <div class="section-kicker">Drag the divider</div>
+      <div class="comparison-head">
+        <h2>Read the text. Keep the scene.</h2>
+        <span>{{ imageSlides[currentSlide].label }}</span>
       </div>
-    </div>
-  </footer>
+      <div class="comparison-shell">
+        <button class="arrow left" type="button" aria-label="Previous comparison" @click="moveSlide(-1)">←</button>
+        <ImgComparisonSlider class="comparison-slider">
+          <img slot="first" :src="imageSlides[currentSlide].first" alt="Low-quality input" />
+          <img slot="second" :src="imageSlides[currentSlide].second" alt="TiGeSR restoration" />
+        </ImgComparisonSlider>
+        <button class="arrow right" type="button" aria-label="Next comparison" @click="moveSlide(1)">→</button>
+      </div>
+      <div class="comparison-caption"><span>Low-quality input</span><strong>TiGeSR</strong></div>
+      <div class="dots" role="tablist" aria-label="Comparison samples">
+        <button v-for="(slide, index) in imageSlides" :key="slide.label" type="button" :class="{ active: index === currentSlide }" :aria-label="`Show ${slide.label}`" @click="currentSlide = index" />
+      </div>
+    </section>
 
+    <section class="statement section-wrap">
+      <p class="section-kicker">Why TIGER</p>
+      <h2>Text is not a texture.</h2>
+      <p>Generative image SR can sharpen a scene while corrupting the characters that matter most. Text SR improves readability, but often loses the image context. TIGER resolves this conflict by treating glyph restoration as a first-class task, then using its restored structure to guide image enhancement.</p>
+    </section>
+
+    <section class="method section-wrap">
+      <div class="method-copy">
+        <p class="section-kicker">The two-stage framework</p>
+        <h2>Recover glyphs before pixels.</h2>
+        <div class="steps">
+          <article>
+            <span>01</span>
+            <h3>Text restoration</h3>
+            <p>OCR and a glyph-structure restoration model reconstruct legible text regions and assemble them into a full-resolution text mask.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Image enhancement</h3>
+            <p>A ControlNet-like image enhancer conditions on the low-resolution image and restored glyph mask to preserve both scene realism and readable text.</p>
+          </article>
+        </div>
+      </div>
+      <figure class="paper-figure">
+        <img src="/TIGER_project_page/TIGER_files/overview.png" alt="Overview of the two-stage TIGER framework" />
+      </figure>
+    </section>
+
+    <section class="dataset section-wrap">
+      <div>
+        <p class="section-kicker">UZ-ST benchmark</p>
+        <h2>Extreme zoom, real-world text.</h2>
+        <p>UZ-ST (UltraZoom Scene Text) is captured with four fixed focal lengths—14 mm, 35 mm, 85 mm, and 200 mm—enabling challenging real-world scene-text pairs at up to ×14.29 zoom.</p>
+      </div>
+      <div class="stats">
+        <div><strong>5,036</strong><span>aligned image pairs</span></div>
+        <div><strong>49,675</strong><span>text lines</span></div>
+        <div><strong>×14.29</strong><span>maximum zoom</span></div>
+      </div>
+      <figure class="wide-figure"><img src="/TIGER_project_page/TIGER_files/datapipe.png" alt="UZ-ST data collection and alignment pipeline" /></figure>
+      <figure class="wide-figure"><img src="/TIGER_project_page/TIGER_files/datasamples.png" alt="Examples from the UZ-ST dataset" /></figure>
+    </section>
+
+    <section class="results section-wrap">
+      <p class="section-kicker">Results</p>
+      <h2>Better image quality. Better text accuracy.</h2>
+      <p>TIGER consistently improves reconstruction quality and text recognition accuracy on Real-CE and UZ-ST, especially in challenging long-range, multilingual, and severely degraded scenes.</p>
+      <div class="results-grid">
+        <figure><img src="/TIGER_project_page/TIGER_files/Quantitative_Comparisons.png" alt="Quantitative results" /></figure>
+        <figure><img src="/TIGER_project_page/TIGER_files/Quantitative_Comparisons_1.png" alt="Quantitative results on cropped images" /></figure>
+      </div>
+      <figure class="wide-figure"><img src="/TIGER_project_page/TIGER_files/Visual_Comparison.png" alt="Visual comparisons with previous methods" /></figure>
+      <figure class="wide-figure"><img src="/TIGER_project_page/TIGER_files/Visual_Comparison_1.png" alt="Additional visual comparisons" /></figure>
+    </section>
+
+    <section class="citation section-wrap">
+      <p class="section-kicker">Citation</p>
+      <h2>Reference</h2>
+      <pre><code>@inproceedings{luo2026restore,
+  title={Restore text first, enhance image later: Two-stage scene text image super-resolution with glyph structure guidance},
+  author={Luo, Minxing and Fan, Linlong and Wang, Qiushi and Wu, Ge and Luo, Yiyan and Yu, Yuhang and Chen, Jinwei and Wang, Yaxing and Fan, Qingnan and Yang, Jian},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={30553--30563},
+  year={2026}
+}</code></pre>
+    </section>
+
+    <footer>Built for <strong>TIGER</strong> · Restore text first, enhance image later.</footer>
+  </main>
 </template>
 
 <style scoped>
-
-.row {
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 1rem;
-}
-.row img-comparison-slider {
-  flex: 1;
-}
-
-/* 轮播容器样式 */
-.carousel-container {
-  width: 1000px;
-  margin: 25px auto;
-  border-radius: 10px;
-  padding: 20px 20px 35px 20px;
-  background: rgb(244, 244, 244);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.carousel-slider {
-  display: flex; 
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
-  position: relative;
-}
-
-.carousel-btn {
-  /* position: absolute; */
-  position: relative;
-  top: 30px;
-  transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.5);
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  font-size: 24px;
-  cursor: pointer;
-  border-radius: 5px;
-  z-index: 10;
-  transition: background 0.3s ease;
-}
-
-.carousel-btn:hover {
-  background: rgba(0, 0, 0, 0.8);
-}
-
-.prev-btn {
-  position: relative;
-  left: 120px;
-}
-
-.next-btn {
-  position: relative;
-  right: 120px;
-}
-
-.carousel-indicators {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 15px;
-  position: relative;
-  bottom: 45px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-}
-
-.indicator {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: #ccc;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.indicator.active {
-  background: #224b8d;
-}
-
-.indicator:hover {
-  background: #555;
-}
-
-a, a:visited {
-  color: #224b8d;
-  font-weight: 300;
-}
-
-.button-container a:visited{
-  color: #FFF; 
-}
-
-.content img {
-  display: inline-block; /* 保持图片为行内块元素 */
-}
-.content-abstract {
-  font-size: 18px;
-  width: 750px;
-  padding: 25px 50px;
-  margin: 25px auto;
-  background-color: white;
-  /* box-shadow: 0px 0px 10px #999; */
-  border-radius: 15px;
-  font-family: "Times New Roman", serif;
-  color: #333;
-}
-.content {
-  font-size: 18px;
-  width: 950px;
-  padding: 25px 50px;
-  margin: 25px auto;
-  background-color: white;
-  /* box-shadow: 0px 0px 10px #999; */
-  border-radius: 15px;
-  font-family: "Times New Roman", serif;
-  color: #333;
-}
-.content-title{
-  font-size: 21px;
-  width: 1400px;
-  padding: 5px 10px;
-  margin: 5px 0px;
-  background-color: white;
-  /* box-shadow: 0px 0px 10px #999; */
-  border-radius: 15px;
-  font-family: "Times New Roman", serif;
-  color: #333;
-  justify-content: center;
-}
-.button-container {
-  display: flex;
-  justify-content: center;
-  font-size: 0.8em;
-  margin-top: 15px;
-}
-
-.custom-button {
-  display: inline-flex;
-  align-items: center;
-  background-color: #2e2e2e;
-  color: white;
-  border: none;
-  border-radius: 999px;
-  padding: 8px 16px;
-  margin: 0 10px;
-  text-decoration: none;
-  font-family: sans-serif;
-  font-weight: 500;
-  font-size: 16px;
-  transition: background-color 0.3s ease;
-  white-space: nowrap;
-}
-
-.custom-button:hover {
-      background-color: #444;
-}
-
-.custom-button img {
-      height: 18px;
-      margin-right: 8px;
-}
-
-.arxiv-icon {
-  width: auto;
-  height: 24px;
-  color: white;
-  margin: 0 0 -7px 0;
-}
-
-/* 全局字体设置 */
-* {
-  font-family: "Times New Roman", serif;
-}
+:global(*) { box-sizing: border-box; }
+:global(body) { margin: 0; background: #f5f0e6; color: #1c1a17; }
+main { overflow: hidden; font-family: Georgia, 'Times New Roman', serif; }
+.hero { position: relative; padding: 5.5rem 1.5rem 4.5rem; text-align: center; background: radial-gradient(circle at 50% -10%, #fff8dc 0, #f5f0e6 55%, #e6dccb 100%); border-bottom: 1px solid #c8b89e; }
+.hero::before { content: ''; position: absolute; inset: 0; pointer-events: none; opacity: .25; background-image: linear-gradient(30deg, transparent 47%, #cf6f2e 48%, #cf6f2e 50%, transparent 51%), linear-gradient(150deg, transparent 47%, #cf6f2e 48%, #cf6f2e 50%, transparent 51%); background-size: 54px 94px; mask-image: linear-gradient(to bottom, black, transparent 65%); }
+.hero > * { position: relative; }
+.hero-mark { display: inline-flex; align-items: center; gap: .35rem; padding: .35rem .8rem; border: 1px solid #bd642a; color: #bd642a; font-family: 'Caveat', cursive; font-size: 1.65rem; letter-spacing: .06em; background: #fff8e7cc; transform: rotate(-2deg); }
+.eyebrow, .section-kicker { margin: 1.5rem 0 .65rem; color: #a84f1d; font-size: .72rem; font-family: 'Caveat', cursive; font-weight: 700; letter-spacing: .17em; text-transform: uppercase; }
+h1, h2, h3, p { margin-top: 0; }
+h1 { max-width: 980px; margin: 0 auto; font-family: 'Playfair Display', Georgia, serif; font-size: clamp(2.7rem, 7vw, 5.8rem); line-height: .96; letter-spacing: -.055em; }
+h1 em { color: #b95620; font-weight: 600; }
+.subtitle { max-width: 640px; margin: 1.3rem auto 1.1rem; font-size: clamp(1rem, 2vw, 1.28rem); line-height: 1.55; }
+.authors { max-width: 1000px; margin: 1rem auto .35rem; font-size: .94rem; line-height: 1.85; }
+.authors sup, .affiliations sup { color: #ae531e; font-weight: 700; }
+.affiliations { margin: 0 auto; font-size: .85rem; color: #5f564c; }
+.actions { display: flex; flex-wrap: wrap; justify-content: center; gap: .65rem; margin-top: 1.75rem; }
+.actions a { padding: .65rem .9rem; color: #fffaf0; background: #26221d; border: 1px solid #26221d; text-decoration: none; font-family: 'Caveat', cursive; font-size: 1.08rem; letter-spacing: .03em; transition: transform .2s ease, background .2s ease; }
+.actions a:hover { transform: translateY(-3px) rotate(-1deg); background: #bd642a; border-color: #bd642a; }
+.comparison-band { padding: 3.2rem 1.25rem 2.3rem; background: #20221e; color: #f8f0e2; }
+.comparison-band .section-kicker { margin-top: 0; color: #f4a453; text-align: center; }
+.comparison-head { display: flex; max-width: 1040px; margin: 0 auto 1.2rem; align-items: baseline; justify-content: space-between; gap: 1rem; }
+.comparison-head h2 { margin: 0; font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.8rem, 4vw, 3rem); letter-spacing: -.04em; }
+.comparison-head span { color: #f4a453; font-family: 'Caveat', cursive; font-size: 1.5rem; }
+.comparison-shell { display: flex; align-items: center; justify-content: center; max-width: 1160px; margin: 0 auto; }
+.comparison-slider { width: min(900px, 78vw); border: 2px solid #f4a453; background: #111; }
+.comparison-slider img { display: block; max-width: 100%; height: min(50vw, 430px); object-fit: contain; }
+.arrow { width: 50px; height: 50px; margin: 0 -9px; border: 1px solid #f4a453; color: #f4a453; background: #20221e; font-size: 1.5rem; cursor: pointer; z-index: 1; transition: all .2s ease; }
+.arrow:hover { color: #20221e; background: #f4a453; }
+.comparison-caption { display: flex; justify-content: space-between; width: min(900px, 78vw); margin: .75rem auto 0; color: #cfc7b9; font-size: .88rem; }
+.comparison-caption strong { color: #f4a453; }
+.dots { display: flex; justify-content: center; gap: .45rem; margin-top: 1rem; }
+.dots button { width: 8px; height: 8px; padding: 0; border: 0; border-radius: 999px; background: #69645b; cursor: pointer; transition: all .2s ease; }
+.dots button.active { width: 28px; background: #f4a453; }
+.section-wrap { width: min(1120px, calc(100% - 2.5rem)); margin: 0 auto; padding: 5.5rem 0; }
+.statement { max-width: 830px; text-align: center; }
+.statement h2, .method h2, .dataset h2, .results h2, .citation h2 { margin-bottom: 1rem; font-family: 'Playfair Display', Georgia, serif; font-size: clamp(2.2rem, 5vw, 4rem); line-height: 1; letter-spacing: -.05em; }
+.statement p:last-child, .dataset p, .results > p { font-size: 1.12rem; line-height: 1.7; color: #51483f; }
+.method { display: grid; grid-template-columns: .9fr 1.1fr; gap: 3.5rem; align-items: center; border-top: 1px solid #d7cbb9; }
+.steps { margin-top: 2rem; border-left: 1px solid #cbbba5; }
+.steps article { padding: .1rem 0 1.25rem 1.4rem; position: relative; }
+.steps article::before { content: ''; position: absolute; width: 9px; height: 9px; left: -5px; top: .43rem; border-radius: 50%; background: #c45d24; }
+.steps span { color: #bd642a; font-family: 'Caveat', cursive; font-size: 1.4rem; }
+.steps h3 { margin: .1rem 0 .25rem; font-family: 'Playfair Display', Georgia, serif; font-size: 1.45rem; }
+.steps p { margin: 0; color: #5a5046; line-height: 1.6; }
+.paper-figure, .wide-figure { margin: 0; }
+.paper-figure img, .wide-figure img, .results-grid img { display: block; width: 100%; border: 1px solid #d6c7b1; background: #fff; }
+.dataset { border-top: 1px solid #d7cbb9; }
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin: 2.3rem 0; background: #c9b99f; border: 1px solid #c9b99f; }
+.stats div { display: grid; gap: .25rem; padding: 1.3rem; background: #fffaf0; }
+.stats strong { color: #b85620; font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.7rem, 4vw, 3rem); letter-spacing: -.04em; }
+.stats span { color: #695e53; font-size: .83rem; text-transform: uppercase; letter-spacing: .07em; }
+.dataset .wide-figure + .wide-figure { margin-top: 1.5rem; }
+.results { border-top: 1px solid #d7cbb9; text-align: center; }
+.results > p { max-width: 730px; margin: 0 auto 2rem; }
+.results-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; margin-bottom: 1.25rem; text-align: left; }
+.results .wide-figure + .wide-figure { margin-top: 1.4rem; }
+.citation { border-top: 1px solid #d7cbb9; }
+.citation pre { overflow-x: auto; margin: 1.5rem 0 0; padding: 1.35rem; background: #26221d; color: #f6e7cb; border-left: 5px solid #c45d24; font-family: 'Courier New', monospace; font-size: .82rem; line-height: 1.55; }
+footer { padding: 2rem 1rem; text-align: center; color: #f2dfbf; background: #26221d; font-size: .9rem; }
+footer strong { color: #f49c46; font-family: 'Caveat', cursive; font-size: 1.35rem; }
+@media (max-width: 760px) { .hero { padding-top: 3.6rem; } .method { grid-template-columns: 1fr; gap: 2rem; } .comparison-shell { width: 100%; } .comparison-slider { width: calc(100vw - 88px); } .comparison-caption { width: calc(100vw - 88px); } .arrow { width: 42px; height: 42px; } .stats, .results-grid { grid-template-columns: 1fr; } .section-wrap { padding: 3.8rem 0; } .authors { font-size: .83rem; } }
 </style>
