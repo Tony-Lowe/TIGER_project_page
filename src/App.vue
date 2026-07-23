@@ -164,7 +164,7 @@ h1 em { color: #b95620; font-weight: 600; }
 .comparison-head span { color: #f4a453; font-family: 'Caveat', cursive; font-size: 1.5rem; }
 .comparison-shell { display: flex; align-items: center; justify-content: center; max-width: 1160px; margin: 0 auto; }
 .comparison-slider { width: min(900px, 78vw); border: 2px solid #f4a453; background: #111; }
-.comparison-slider img { display: block; max-width: 100%; height: min(50vw, 430px); object-fit: contain; }
+.comparison-slider img { display: block; width: 100%; max-width: 100%; height: min(50vw, 430px); object-fit: contain; object-position: center; }
 .arrow { width: 50px; height: 50px; margin: 0 -9px; border: 1px solid #f4a453; color: #f4a453; background: #20221e; font-size: 1.5rem; cursor: pointer; z-index: 1; transition: all .2s ease; }
 .arrow:hover { color: #20221e; background: #f4a453; }
 .comparison-caption { display: flex; justify-content: space-between; width: min(900px, 78vw); margin: .75rem auto 0; color: #cfc7b9; font-size: .88rem; }
